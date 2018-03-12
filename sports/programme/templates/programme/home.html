@@ -1,0 +1,10 @@
+{% extends "programme/index.html" %}
+
+{% block content %}
+<h2>Programmes</h2>
+<ul>
+{% for programme in programmes %}
+<li>{{ programme }}</li>
+{% endfor %}
+</ul>
+{% endblock %}
