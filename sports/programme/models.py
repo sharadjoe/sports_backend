@@ -1,6 +1,9 @@
 from django.db import models
 
 
+type_gender = (('M','Male'),('F','Female'))
+type_event = (('G','Games'),('A','Athletics'))
+
 class Programme(models.Model):
     name = models.CharField(max_length=20)  
 
@@ -10,9 +13,7 @@ class Programme(models.Model):
 
 class Event(models.Model):
     name = models.CharField(max_length=35)
-    type_event = (('G','Games'),('A','Athletics'))
     typeOfEvent = models.CharField(max_length=1, choices = type_event)
-    type_gender = (('M','Male'),('F','Female'))
     typeOfGender = models.CharField(max_length=1,choices = type_gender)
     programme = models.ForeignKey('Programme', on_delete = models.CASCADE,)
 
@@ -28,7 +29,6 @@ class House(models.Model):
 class Student(models.Model):
     first_name = models.CharField(max_length = 50)
     last_name = models.CharField(max_length = 50)
-    type_gender = (('M','Male'),('F','Female'))
     gender = models.CharField(max_length=1, choices = type_gender)
     reg_no = models.CharField(max_length = 10)
     event = models.ManyToManyField(Event)
