@@ -1,0 +1,13 @@
+{% extends "programme/index.html" %}
+
+{% block content %}
+<h2>Programmes</h2>
+<table style="width:100%;">
+{% for programme in programmes %}
+<p><tr>
+    <tb><a href = "{{ programme.pk }} ">{{ programme }}</a></tb>
+</p>
+{% endfor %}
+</table>
+<a href = 'add' ><button>ADD</button></a>
+{% endblock %}
