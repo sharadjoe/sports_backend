@@ -2,9 +2,12 @@
 
 {% block content %}
 <h2>Programmes</h2>
-<ul>
+<table style="width:100%;">
 {% for programme in programmes %}
-<li>{{ programme }}</li>
+<p><tr>
+    <tb><a href = "{{ programme.pk }} ">{{ programme }}</a></tb>
+</p>
 {% endfor %}
-</ul>
+</table>
+<a href = 'add' ><button>ADD</button></a>
 {% endblock %}
