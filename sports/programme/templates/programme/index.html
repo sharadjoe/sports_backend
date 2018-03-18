@@ -7,5 +7,14 @@
     <body>
         {% block content %}
         {% endblock %}
+    
+        <script type="text/javascript">
+            function popUp(message, pk){
+
+                if (confirm(''+message +pk)) {
+                    window.location.href = "/programmes/delete/" +pk;
+                }                                
+            }
+        </script>
     </body>
 </html>

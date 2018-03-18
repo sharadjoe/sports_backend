@@ -25,7 +25,6 @@ def add(request):
     return render(request, 'programme/add.html',context)
 
 def delete(request, pk):
-    pk = request.POST.get('pk')
     models.Programme.objects.filter(pk=pk).delete()
     return HttpResponseRedirect('/programmes/')
 
