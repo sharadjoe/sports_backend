@@ -4,9 +4,17 @@ from django.db import models
 type_gender = (('M','Male'),('F','Female'))
 type_event = (('G','Games'),('A','Athletics'))
 
-class Programme(models.Model):
-    name = models.CharField(max_length=20)  
+import datetime
+YEAR_CHOICES = []
+for r in range(1980, (datetime.datetime.now().year+1)):
+    YEAR_CHOICES.append((r,r))
 
+
+
+class Programme(models.Model):
+    name = models.CharField(max_length=20)
+    year = models.IntegerField(('year'), choices=YEAR_CHOICES, default=datetime.datetime.now().year)
+  
 
     def __str__(self):
         return self.name

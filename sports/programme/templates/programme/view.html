@@ -2,12 +2,16 @@
 
 {% block content %}
 
-<h2>ADD</h2>
+<h2></h2>
+<ul>
+    <p>FORMBEGIN</p>
 
     <form action="" method="post" >
         {% csrf_token %}
         {{ form}}
-        <input type="submit" value = "ADD" >
+        
     </form>
     
+    <p>FORMEND</p>
+</ul>
 {% endblock %}

@@ -4,7 +4,7 @@ from .models import Programme, Event, House, Student
 class ProgrammeForm(ModelForm):
     class Meta:
         model = Programme
-        fields = ['name',]
+        fields = ['name','year']
 
 class EventForm(ModelForm):
     class Meta:

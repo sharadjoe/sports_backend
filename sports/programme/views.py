@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from . import models
-from .forms import ProgrammeForm
+from .forms import ProgrammeForm, EventForm
 
 
 def index(request):
@@ -28,4 +28,17 @@ def delete(request, pk):
     models.Programme.objects.filter(pk=pk).delete()
     return HttpResponseRedirect('/programmes/')
 
-
+#do auto fill programme field
+def addEvent(request,pk):
+    if request.method=='POST':
+        eventForm = EventForm(request.POST)
+        if eventForm.is_valid():
+            eventForm.save()
+        return HttpResponseRedirect('/programmes/')
+    else:
+        eventForm = EventForm()
+    
+    context = {
+        'form':eventForm
+        }
+    return render(request, 'programme/add.html',context)
